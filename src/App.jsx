@@ -1,21 +1,25 @@
-import { useState } from 'react'
+import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePage from './pages/HomePage';
-
+import HomePage from "./pages/HomePage";
+import DetailPage from "./pages/DetailPage";
+import DefaultLayout from "./layouts/DefaultLayout";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <BrowserRouter>
     <Routes>
-      
+      {/* Route per la pagina principale con layout di default */}
+      <Route path="/" element={<DefaultLayout />}>
+        {/* Route per la home page */}
         <Route index element={<HomePage />} />
-        
-    
+        {/* Route per la pagina di dettaglio */}
+        <Route path="detail" element={<DetailPage />} />
+      </Route>
     </Routes>
   </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;
