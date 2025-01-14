@@ -10,6 +10,7 @@ export default function MovieShowPage() {
     fetch(`http://localhost:3000/movies/${movieId}`)
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         setMovie(data);
       });
   }, [movieId]);
@@ -21,12 +22,14 @@ export default function MovieShowPage() {
         <div>
           <h2 className="text-center">{movie.title}</h2>
 
-          <ul>
+          <ul className="p-2">
             <li>{movie.title}</li>
             <li> {movie.director}</li>
             <li> {movie.genre}</li>
-            <li> {movie.relase_year}</li>
+            <li> {movie.release_year}</li>
             <li> {movie.abstract}</li>
+            <strong>VOTE:</strong>
+            <li> {movie.vote}</li>
           </ul>
         </div>
       ) : (
