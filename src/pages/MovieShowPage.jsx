@@ -26,6 +26,7 @@ export default function MovieShowPage() {
             <li> {movie.director}</li>
             <li> {movie.genre}</li>
             <li> {movie.relase_year}</li>
+            <li> {movie.abstract}</li>
           </ul>
         </div>
       ) : (

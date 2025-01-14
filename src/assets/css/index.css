@@ -6,3 +6,17 @@
     list-style-type: none;
     padding: 0;
   }
+  
+  .custom-navbar {
+    background-color: #007bff; /* Colore azzurro */
+  }
+  
+  .custom-navbar .navbar-brand,
+  .custom-navbar .nav-link {
+    color: #ffffff; /* Colore bianco */
+  }
+  
+  .custom-navbar .nav-link:hover {
+    color: #d1ecf1; /* Colore bianco con un'ombra azzurra chiara al passaggio del mouse */
+  }
+  
