@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import "../assets/css/index.css";
 
 export default function HomePage() {
   const [movies, setMovies] = useState([]);
@@ -12,12 +14,15 @@ export default function HomePage() {
   }, []);
 
   return (
-    <>
-      <h1>Homepage</h1>
-
-      {movies.map((movie) => (
-        <li key={movie.id}>{movie.title}</li>
-      ))}
-    </>
+    <div className="center-text">
+      <h1 className="p-3">MOVIES:</h1>
+      <ul>
+        {movies.map((movie) => (
+          <Link to={`/movies/` + movie.id} key={movie.id}>
+            <li>{movie.title}</li>
+          </Link>
+        ))}
+      </ul>
+    </div>
   );
 }
