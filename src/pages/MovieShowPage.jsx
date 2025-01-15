@@ -1,15 +1,21 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import "../assets/css/index.css";
 import ReviewList from "../components/reviews/ReviewList";
 
 export default function MovieShowPage() {
   const { id: movieId } = useParams();
+  const navigate = useNavigate();
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
     fetch(`http://localhost:3000/movies/${movieId}`)
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.status != 200) {
+          navigate("/not-found");
+        }
+        return res.json();
+      })
       .then((data) => {
         console.log(data);
         setMovie(data);
@@ -31,7 +37,7 @@ export default function MovieShowPage() {
             <li>{movie.abstract}</li>
           </ul>
           <div className="row">
-            <ReviewList reviews={movie.reviews}/>
+            <ReviewList reviews={movie.reviews} />
           </div>
         </div>
       ) : (

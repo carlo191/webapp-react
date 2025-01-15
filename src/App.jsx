@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import DetailPage from "./pages/DetailPage";
 import DefaultLayout from "./layouts/DefaultLayout";
 import MovieShowPage from "./pages/MovieShowPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -19,6 +20,8 @@ function App() {
           <Route path="detail" element={<DetailPage />} />
           <Route path="movies/:id" element={<MovieShowPage />} />
         </Route>
+        {/* 404 page */}
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );
